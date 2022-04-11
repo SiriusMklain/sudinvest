@@ -1,0 +1,197 @@
+<!DOCTYPE html> <html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width, initial-scale=1.0">
+	<meta name="description"
+				content="">
+	<meta name="keywords"
+				content="">
+	<link rel="shortcut icon"
+				href="img/favicons/favicon.svg"
+				type="image/svg+xml">
+	<link rel="shortcut icon"
+				href="img/favicons/favicon.webp"
+				type="image/webp">
+	<link rel="shortcut icon"
+				href="img/favicons/favicon.png"
+				type="image/x-icon">
+	<link rel="stylesheet"
+				href="css/libs.min.css">
+	<link rel="stylesheet"
+				href="css/style.min.css">
+	<title>Главная</title>
+</head>
+
+
+<body>
+    <div class="page">
+
+        <div class="wrapper">
+            <header class='header'>
+    <div class='container'>
+        <div class='header__inner'>
+            <a href="index.html" class="header__logo">
+                <img src="img/logo.svg" alt="">
+            </a>
+            <div class="header__right">
+                <nav class="nav">
+                    <a href="" class="nav__item">Инвестиции</a>
+                    <a href="" class="nav__item">Взыскание</a>
+                    <a href="" class="nav__item">О компании</a>
+                    <a href="" class="nav__item">Полезная информация</a>
+                    <a href="" class="nav__item">Контакты</a>
+                </nav>
+                <button class="header__btn btn btn-blue" data-bs-toggle="modal" data-bs-target="#consultModal">Оставить заявку</button>
+            </div>
+            <button class="header__burger">
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+            <main class="content">
+
+                <section class='about'>
+                    <div class='container'>
+                        <div class='about__inner'>
+                            <div class="about__left">
+                                <div class="about__text">
+                                    <h1 class="about__title display3">СУДИНВЕСТОР</h1>
+                                    <div class="about__desc">
+                                        <p>Взыскиваем долги и сопровождаем банкротства с 2005 года.</p>
+                                        <p>За это время реализованы сотни проектов, направленных на решение проблем с просроченными долгами. </p>
+                                        <p>Шаг за шагом мы расширяли компетенции и зону интересов. В 2020 году основным направлением деятельности стали инвестиции в долговые обязательства: покупка долгов на рынке и последующее взыскание. </p>
+                                        <p>При инвестировании в долги необходима диверсификация. С точки зрения рисков и доходности гораздо правильнее купить по 1/10 в десяти долгах, чем один долг целиком. Логичным решением является привлечение партнеров
+                                            для совместной покупки долгов. Это выгодно и нам, и партнерам.</p>
+                                        <p>Мы получаем возможность диверсификации, приобретения крупных долгов, экспертное мнение партнеров и зарабатываем комиссию от успешных сделок. </p>
+                                        <p>Партнеры - возможность инвестировать в долги относительно небольшие суммы, снижение рисков, наши знания и опыт в этой сфере. </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="about__right">
+                                <div class="about__gallery">
+                                    <div class="about__gallery-item">
+                                        <img src="img/about.webp" alt="">
+                                    </div>
+                                    <div class="about__gallery-item">
+                                        <img src="img/about2.webp" alt="">
+                                    </div>
+                                    <div class="about__gallery-item">
+                                        <img src="img/about3.webp" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+            <footer class='footer'>
+    <div class='container'>
+        <div class='footer__inner'>
+            <a href="" class="footer__logo">
+                <img src="img/logo.svg" alt="">
+            </a>
+            <div class="footer__right">
+                <div class="footer__links">
+                    <a href="" class="footer__link">Инвестиции</a>
+                    <a href="" class="footer__link">Взыскание</a>
+                    <a href="" class="footer__link">О компании</a>
+                    <a href="" class="footer__link">Полезная информация</a>
+                    <a href="" class="footer__link">Контакты</a>
+                </div>
+                <div class="footer__bottom">
+                    <a href="" class="footer__conf">Политика конфиденциальности</a>
+                    <span class="footer__by">2022 © Судинвестор. Developer By Makarenko.tech</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+        </div>
+    </div>
+    <div class="modal fade" id="consultModal" aria-labelledby="consultModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal__top">
+            <div class="modal__title display2">Оставьте заявку</div>
+            <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25.3334 8.54666L23.4534 6.66666L16.0001 14.12L8.54675 6.66666L6.66675 8.54666L14.1201 16L6.66675 23.4533L8.54675 25.3333L16.0001 17.88L23.4534 25.3333L25.3334 23.4533L17.8801 16L25.3334 8.54666Z" fill="#323232"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="modal__content">
+            <form action="" class="modal__form">
+                <div class="modal__form-grid">
+                    <fieldset class='form-group form-group--error'>
+                        <label>ИНН</label>
+                        <input type='text' placeholder="Введите номер ИНН" />
+                        <span class="form-group__error-text">Error</span>
+                    </fieldset>
+                    <fieldset class='form-group'>
+                        <label>Наименование должника</label>
+                        <input type='text' placeholder="Введите должника" />
+                    </fieldset>
+                    <fieldset class='form-group'>
+                        <label>Телефон</label>
+                        <input type='tel' placeholder="Введите телефон" />
+                    </fieldset>
+                    <fieldset class='form-group'>
+                        <label>Сумма долга, руб.</label>
+                        <input type='text' placeholder="Введите сумму долга" />
+                    </fieldset>
+                    <fieldset class='form-group'>
+                        <label>Имя</label>
+                        <input type='text' placeholder="Введите Ваше имя" />
+                    </fieldset>
+                    <fieldset class='form-group'>
+                        <label>Получено судебное решение?</label>
+                        <div class="custom-select">
+                            <div class="custom-select__target">
+                                <input type="text" placeholder="Выберите ответ">
+                            </div>
+                            <div class="custom-select__dropdown">
+                                <div class="custom-select__dropdown-inner">
+                                    <div class="custom-select__dropdown-item">Да</div>
+                                    <div class="custom-select__dropdown-item">Нет</div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class='form-group'>
+                        <label>Почта</label>
+                        <input type='email' placeholder="Введите Вашу почту" />
+                    </fieldset>
+                    <fieldset class='form-group'>
+                        <label>Получен исполнительный лист</label>
+                        <div class="custom-select">
+                            <div class="custom-select__target">
+                                <input type="text" placeholder="Выберите ответ">
+                            </div>
+                            <div class="custom-select__dropdown">
+                                <div class="custom-select__dropdown-inner">
+                                    <div class="custom-select__dropdown-item">Да</div>
+                                    <div class="custom-select__dropdown-item">Нет</div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <button class="modal__form-btn btn btn-blue">Оставить заявку</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<!-- <div class="modal-backdrop show"></div> -->
+    <!--  -->
+    <script src="js/libs.min.js"></script>
+<script src="js/main.min.js"></script>
+
+</body>
+
+</html>

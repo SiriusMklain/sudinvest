@@ -1,0 +1,230 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Инвестиции{% endblock %}
+
+{% block content %}
+
+    <section class="investments">
+        <div class="container">
+            <div class="investments__inner">
+                <div class="investments__img">
+                    <img src="{% static 'img/girl.png' %}" alt="">
+                </div>
+                <div class="investments__desc">
+                    <h2 class="investments__title">Инвестируйте в долги с ожидаемой доходностью от 20% до 110%
+                        годовых</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="steps">
+        <div class="container">
+            <div class="steps__items">
+                <div class="steps__item">
+                    <span class="steps__number">01</span>
+                    <a href="#investment" class="steps__text steps__text--link">Ознакомьтесь с порядком
+                        инвестирования</a>
+                </div>
+                <div class="steps__item">
+                    <span class="steps__number">02</span>
+                    <span class="steps__text">Заключите договор</span>
+                </div>
+                <div class="steps__item">
+                    <span class="steps__number">03</span>
+                    <span class="steps__text">Выбирайте подходящие проекты </span>
+                </div>
+                <div class="steps__item">
+                    <span class="steps__number">04</span>
+                    <span class="steps__text">Вкладывайте деньги и получайте прибыль</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="information">
+        <div class="container">
+            <div class="information__inner">
+                <h3 class="information__title">Получите дополнительную информацию по инвестированию</h3>
+                <p class="information__text">Оставьте контакты и мы свяжемся с Вами!</p>
+                <form class="information__form validate-form">
+                    <fieldset class="form-group">
+                        <label>Имя</label>
+                        <input class="required" type="text" placeholder="Введите имя">
+                        <div class="form-group__error-text">
+                            <span class="form-group__error-required">Это поле обязательно</span>
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label>Почта</label>
+                        <input class="required" type="email" placeholder="Введите почту">
+                        <div class="form-group__error-text">
+                            <span class="form-group__error-required">Это поле обязательно</span>
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label>Телефон</label>
+                        <input class="required" type="tel" placeholder="Введите телефон">
+                        <div class="form-group__error-text">
+                            <span class="form-group__error-required">Это поле обязательно</span>
+                        </div>
+                    </fieldset>
+                    <button class="information__btn btn btn-blue">Оставить заявку</button>
+                </form>
+
+                <div class="information__img">
+                    <img src="{% static 'img/information-girl.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="investment" class="investment how-sell">
+        <div class="container">
+            <h2 class="how-sell__title display2">Порядок инвестирования</h2>
+            <div class="how-sell__items">
+                <div class="how-sell__item">
+                    <span class="how-sell__item-num">01</span>
+                    <span class="how-sell__item-title">Отбираем подходящие для инвестирования долги</span>
+                </div>
+                <div class="how-sell__item">
+                    <span class="how-sell__item-num">02</span>
+                    <span class="how-sell__item-title">Заключаем договор приобретения долга</span>
+                </div>
+                <div class="how-sell__item">
+                    <span class="how-sell__item-num">03</span>
+                    <span class="how-sell__item-title">Представляем долг инвесторам. Минимальная сумма инвестиций - 300 тыс. руб.</span>
+                </div>
+                <div class="how-sell__item">
+                    <span class="how-sell__item-num">04</span>
+                    <span class="how-sell__item-title">Выкупаем долг на собственные средства и средства инвесторов.Минимальная сумма собственных средств - 10% стоимости долга </span>
+                </div>
+                <div class="how-sell__item">
+                    <span class="how-sell__item-num">05</span>
+                    <span class="how-sell__item-title">Договариваемся с должником или взыскиваем долг </span>
+                </div>
+                <div class="how-sell__item">
+                    <span class="how-sell__item-num">06</span>
+                    <span class="how-sell__item-title">Возвращаем инвестиции и распределяем прибыль. Из прибылиудерживаем 30% вознаграждения </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class='problems'>
+        <div class='container'>
+            <h2 class="problems__title display2">
+                Проблемы при самостоятельном инвестировании в долги
+            </h2>
+            <div class='problems__items'>
+                <div class="problems__item">
+                    <div class="problems__item-title">Приобретаются <br> "плохие" долги</div>
+                    <ul class="problems__item-list">
+                        <li>Чрезмерное доверие продавцу или организатору торгов</li>
+                        <li>Отсутствие специальных знаний, опыта
+                        </li>
+                        <li>Непонимания объекта инвестиций</li>
+                        <li>Неадекватная оценка долга</li>
+                    </ul>
+                </div>
+                <div class="problems__item">
+                    <div class="problems__item-title">Не получается взыскать <br> деньги
+                    </div>
+                    <ul class="problems__item-list">
+                        <li>Отсутствие стратегии</li>
+                        <li>Отсутствия специальных знаний, опыта</li>
+                        <li>Превышение бюджета на взыскание</li>
+                    </ul>
+                </div>
+                <div class="problems__item">
+                    <div class="problems__item-title">Не получается <br> купить долги</div>
+                    <ul class="problems__item-list">
+                        <li>Не допускают на торги</li>
+                        <li>Торги оспаривают</li>
+                        <li>Кредитор не продает долг на выгодных условиях
+                        </li>
+                    </ul>
+                </div>
+                <div class="problems__item">
+                    <div class="problems__item-title">Не хватает капитала, нет возможности <br> диверсифицировать
+                        средства
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="terms">
+        <div class="container">
+            <div class="terms__inner">
+                <h2 class="terms__title display2">Условия совместного инвестирования</h2>
+                <div class="terms__img">
+                    <img src="{% static 'img/terms.png' %}" alt="">
+                </div>
+                <div class="terms__left">
+                    <div class="terms__desc">
+                        <p class="terms__text">В соответствии с заключаемым агентским договором ищем и приобретаем для
+                            Вас право требования, осуществляем взыскание средств.</p>
+                        <p class="terms__text">Во все проекты заходим вместе с Вами, минимальное собственное участие в
+                            проекте - <span>10%</span>. Чаще - больше.</p>
+                        <p class="terms__text">Взысканные по проекту средства распределяем в следующем порядке:</p>
+                        <ul class="terms__list">
+                            <li>1. В первую очередь возвращаются вложенные в проект средства.</li>
+                            <li>2. В последующую очередь выплачивается полученная прибыль.</li>
+                        </ul>
+                        <p class="terms__text">Наше вознаграждение составляет 30% прибыли.</p>
+                    </div>
+                    <div class="terms__bottom-desc">
+                        <p class="terms__bottom-text">Отказ от ответственности. Информация, размещаемая на сайте, не
+                            является индивидуальной инвестиционной рекомендацией. Инвестиции в долговые обязательства
+                            могут не соответствовать Вашему инвестиционному профилю и инвестиционным
+                            целям (ожиданиям). Анализ инвестиционного проекта, определение его соответствия Вашим
+                            интересам, инвестиционным целям, инвестиционному горизонту и уровню допустимого риска
+                            является Вашей задачей. Мы не несем ответственности
+                            за возможные убытки в случае совершения операций либо инвестирования в долговые
+                            обязательства. Информация не может рассматриваться в качестве гарантий или обещаний в
+                            будущем доходности вложений, уровня риска, размера
+                            издержек, безубыточности инвестиций. Результат инвестирования в прошлом не определяет дохода
+                            в будущем. Инвестирование в долговые обязательства сопряжено со значительным риском, и
+                            решения об инвестициях должны приниматься
+                            инвестором самостоятельно.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class='invest-info'>
+        <div class='container'>
+            <div class='invest-info__inner'>
+                <h2 class="invest-info__title">Получите дополнительную информацию по инвестированию</h2>
+                <form action="" class="invest-info__form validate-form">
+                    <fieldset class="invest-info__form-group form-group">
+                        <label>Имя</label>
+                        <input class="required" type="text" placeholder="Введите имя">
+                        <div class="form-group__error-text">
+                            <span class="form-group__error-required">Это поле обязательно</span>
+                        </div>
+                    </fieldset>
+                    <fieldset class="invest-info__form-group form-group">
+                        <label>Почта</label>
+                        <input class="required" type="email" placeholder="Введите почту">
+                        <div class="form-group__error-text">
+                            <span class="form-group__error-required">Это поле обязательно</span>
+                        </div>
+                    </fieldset>
+                    <fieldset class="invest-info__form-group form-group">
+                        <label>Телефон</label>
+                        <input class="required" type="tel" placeholder="Введите телефон">
+                        <div class="form-group__error-text">
+                            <span class="form-group__error-required">Это поле обязательно</span>
+                        </div>
+                    </fieldset>
+                    <button class="invest-info__btn btn btn-blue">Оставить заявку</button>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

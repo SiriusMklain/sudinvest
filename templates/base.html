@@ -1,0 +1,177 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="shortcut icon" href="{% static 'img/favicons/favicon.svg' %}" type="image/svg+xml">
+    <link rel="shortcut icon" href="{% static 'img/favicons/favicon.webp' %}" type="image/webp">
+    <link rel="shortcut icon" href="{% static 'img/favicons/favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/libs.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+    <title>{% block title %}СудИнвест{% endblock %}</title>
+</head>
+
+
+<body>
+<div class="page">
+
+    <div class="wrapper">
+        <header class='header'>
+            <div class='container'>
+                <div class='header__inner'>
+                    <a href="{% url 'home' %}" class="header__logo">
+                        <img src="{% static 'img/logo.svg' %}" alt="">
+                    </a>
+                    <div class="header__right">
+                        <nav class="nav">
+                            <a href="{% url 'investments' %}" class="nav__item">Инвестиции</a>
+                            <a href="{% url 'vziskaniye' %}" class="nav__item">Взыскание</a>
+                            <a href="{% url 'about' %}" class="nav__item">О компании</a>
+                            <a href="{% url 'info' %}" class="nav__item">Полезная информация</a>
+                            <a href="{% url 'projects' %}" class="nav__item">Проекты</a>
+                        </nav>
+                        <button class="header__btn btn btn-blue" data-bs-toggle="modal" data-bs-target="#consultModal">
+                            Оставить заявку
+                        </button>
+                    </div>
+                    <button class="header__burger">
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <main class="content">
+
+            {% block content %}
+            {% endblock %}
+
+
+        </main>
+        <footer class='footer'>
+            <div class='container'>
+                <div class='footer__inner'>
+                    <a href="{% url 'home' %}" class="footer__logo">
+                        <img src="{% static 'img/logo.svg' %}" alt="">
+                    </a>
+                    <div class="footer__right">
+                        <div class="footer__links">
+                            <a href="{% url 'investments' %}" class="footer__link">Инвестиции</a>
+                            <a href="{% url 'vziskaniye' %}" class="footer__link">Взыскание</a>
+                            <a href="{% url 'about' %}" class="footer__link">О компании</a>
+                            <a href="{% url 'info' %}" class="footer__link">Полезная информация</a>
+                            <a href="{% url 'projects' %}" class="footer__link">Проекты</a>
+                        </div>
+                        <div class="footer__bottom">
+                            <a href="" class="footer__conf">Политика конфиденциальности</a>
+                            <span class="footer__by">2022 © Судинвестор. Developer By Makarenko.tech</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<div class="modal fade" id="consultModal" aria-labelledby="consultModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal__top">
+            <div class="modal__title display2">Оставьте заявку</div>
+            <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25.3334 8.54666L23.4534 6.66666L16.0001 14.12L8.54675 6.66666L6.66675 8.54666L14.1201 16L6.66675 23.4533L8.54675 25.3333L16.0001 17.88L23.4534 25.3333L25.3334 23.4533L17.8801 16L25.3334 8.54666Z"
+                          fill="#323232"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="modal__content">
+            <form action="" class="modal__form validate-form" onsubmit="return validateForm()" method="post">
+            {% csrf_token %}
+                <div class="modal__form-grid">
+                    {% for foo in form %}
+                    <fieldset class='form-group'>
+                        <label>{{ foo.label }}</label>
+                        {{ foo }}
+                        <div class="form-group__error-text">
+                            <span class="form-group__error-required">Это поле обязательно</span>
+                        </div>
+                    </fieldset>
+                    <fieldset class='form-group'>
+                        <label>Получено судебное решение?</label>
+                        <div class="custom-select">
+                            <div class="custom-select__target">
+                                <input type="text" placeholder="Выберите ответ">
+                            </div>
+                            <div class="custom-select__dropdown">
+                                <div class="custom-select__dropdown-inner">
+                                    <div class="custom-select__dropdown-item">Да</div>
+                                    <div class="custom-select__dropdown-item">Нет</div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    {% endfor %}
+                </div>
+                <button class="modal__form-btn btn btn-blue">Оставить заявку</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade modal2" id="consultModal2" aria-labelledby="consultModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal__top">
+            <div class="modal__title display2">Оставьте заявку</div>
+            <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25.3334 8.54666L23.4534 6.66666L16.0001 14.12L8.54675 6.66666L6.66675 8.54666L14.1201 16L6.66675 23.4533L8.54675 25.3333L16.0001 17.88L23.4534 25.3333L25.3334 23.4533L17.8801 16L25.3334 8.54666Z"
+                          fill="#323232"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="modal__content">
+            <form action="" class="modal__form validate-form">
+                <div class="modal__form-grid">
+                    <fieldset class='form-group'>
+                        <label>Имя</label>
+                        <input class="required" type='text' placeholder="Введите Ваше имя"/>
+                        <div class="form-group__error-text">
+                            <span class="form-group__error-required">Это поле обязательно</span>
+                        </div>
+                    </fieldset>
+                    <fieldset class='form-group'>
+                        <label>Телефон</label>
+                        <input class="required" type='tel' placeholder="Введите телефон"/>
+                        <div class="form-group__error-text">
+                            <span class="form-group__error-required">Это поле обязательно</span>
+                        </div>
+                    </fieldset>
+                    <fieldset class='form-group'>
+                        <label>Почта</label>
+                        <input class="required" type='email' placeholder="Введите Вашу почту"/>
+                        <div class="form-group__error-text">
+                            <span class="form-group__error-required">Это поле обязательно</span>
+                        </div>
+                    </fieldset>
+                </div>
+                <button class="modal__form-btn btn btn-blue">Оставить заявку</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<!-- <div class="modal-backdrop show"></div> -->
+<!--  -->
+<script src="{% static 'js/libs.min.js' %}"></script>
+<script src="{% static 'js/main.min.js' %}"></script>
+
+</body>
+
+</html>

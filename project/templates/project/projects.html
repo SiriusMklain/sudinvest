@@ -1,0 +1,313 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block title %}Проекты{% endblock %}
+
+{% block content %}
+    <section class='projects'>
+                <div class='container'>
+                    <div class="projects__top">
+                        <h1 class="projects__title display3">Проекты в работе</h1>
+                        <div class="projects__tabs">
+                            <div class="projects__tab projects__tab--active" data-tab-path="1">Активные</div>
+                            <div class="projects__tab" data-tab-path="2">Завершенные</div>
+                        </div>
+                    </div>
+
+                    <div class="projects__select form-group">
+                        <label>Показывать в виде:</label>
+                        <div class="custom-select">
+                            <div class="custom-select__target">
+                                <input type="text" value="Карточек">
+                            </div>
+                            <div class="custom-select__dropdown">
+                                <div class="custom-select__dropdown-inner">
+                                    <div data-view="1"
+                                         class="custom-select__dropdown-item custom-select__dropdown-item--selected">
+                                        Карточек
+                                    </div>
+                                    <div data-view="2" class="custom-select__dropdown-item">Таблицы</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="projects__tab-content projects__tab-content--active" data-tab-path="1">
+                        <div class="projects__view">
+                            <div class="projects__grid-view">
+                                <div class="projects__grid">
+                                    {% for post in posts.object_list %}
+                                    {% if post.statusProject == 'active' %}
+                                    <div class="project-card">
+                                        <div class="project-card__top">
+                                            <span class="project-card__num">{{ post.id }}</span>
+                                            <h4 class="project-card__title">{{ post.projectNumber }}</h4>
+
+                                        </div>
+
+                                        <div class="project-card__items">
+                                            <div class="project-card__item">
+                                                <span class="project-card__item-title">Номинал долга:</span>
+                                                <span class="project-card__item-desc">{{ post.amountDebts|intcomma }}₽</span>
+                                            </div>
+                                            <div class="project-card__item">
+                                                <span class="project-card__item-title">Стоимость покупки: </span>
+                                                <span class="project-card__item-desc">{{ post.amountBye|intcomma }}₽</span>
+                                            </div>
+                                            <div class="project-card__item">
+                                                <span class="project-card__item-title">Плановые затраты: </span>
+                                                <span class="project-card__item-desc">{{ post.amountCosts|intcomma }}₽</span>
+                                            </div>
+                                            <div class="project-card__item">
+                                                <span class="project-card__item-title">Плановый доход:</span>
+                                                <span class="project-card__item-desc">{{ post.planned_financial_result|intcomma }}₽</span>
+                                            </div>
+                                            <div class="project-card__item">
+                                                <span class="project-card__item-title">Ожидаемый срок взыскания:</span>
+                                                <span class="project-card__item-desc">{{ post.planned_collection_period|intcomma }}</span>
+                                            </div>
+                                            <div class="project-card__item">
+                                                <span class="project-card__item-title">Ожидаемая годовая доходность:</span>
+                                                <span class="project-card__item-desc">{{ post.discount|intcomma }}%</span>
+                                            </div>
+                                            <div class="project-card__item">
+                                                <span class="project-card__item-title">Сумма инвестиций всего:</span>
+                                                <span class="project-card__item-desc">{{ post.total_investment_amount|intcomma }}₽</span>
+                                            </div>
+                                            <div class="project-card__item">
+                                                <span class="project-card__item-title">Свободно для инвестиций:</span>
+                                                <span class="project-card__item-desc">{{ post.free_for_investment|intcomma }}₽</span>
+                                            </div>
+                                            <div class="project-card__item">
+                                                <span class="project-card__item-title">Инвестиции принимаются до:</span>
+                                                <span class="project-card__item-desc">{{ post.investments_are_accepted_until|intcomma }}</span>
+                                            </div>
+                                        </div>
+
+                                        <button class="project-card__btn btn btn-blue" data-bs-toggle="modal"
+                                                data-bs-target="#consultModal2">Принять участие
+                                        </button>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="projects__table-view">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>Проект</th>
+                                        <th>Номинал <br> долга:
+                                        </th>
+                                        <th>Стоимость <br> покупки:</th>
+                                        <th>
+                                            Затраты:
+                                        </th>
+                                        <th>Доход:
+                                        </th>
+                                        <th>Срок <br> взыскания:
+                                        </th>
+                                        <th>Годовая <br> доходность:
+                                        </th>
+                                        <th>Сумма <br> инвестиций <br> всего:
+                                        </th>
+                                        <th>Свободно <br> для инвестиций:</th>
+                                        <th>Инвестиции <br> принимаются <br> до:
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for post in posts.object_list %}
+                                    {% if post.statusProject == 'active' %}
+                                    <tr data-bs-toggle="modal" data-bs-target="#consultModal2">
+                                        <td>{{ post.projectNumber }}</td>
+                                        <td>{{ post.amountDebts|intcomma }}₽</td>
+                                        <td>{{ post.amountCosts|intcomma }}₽</td>
+                                        <td>{{ post.planned_financial_result|intcomma }}₽</td>
+                                        <td>{{ post.planned_collection_period|intcomma }}</td>
+                                        <td>{{ post.discount|intcomma }}%</td>
+                                        <td>{ post.total_investment_amount|intcomma }}₽</td>
+                                        <td>{{ post.free_for_investment|intcomma }}₽</td>
+                                        <td>{{ post.investments_are_accepted_until|intcomma }}</td>
+                                    </tr>
+                                    {% endif %}
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        {% if is_paginated %}
+                        <div class="pagination">
+                            <a href="{{ prev_url }}" class=" {% if not prev_url %} pagination__btn--disabled {% endif %}pagination__btn ">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8.22 12.7199C8.07931 12.5793 8.00018 12.3887 8 12.1899V11.8099C8.0023 11.6114 8.08112 11.4216 8.22 11.2799L13.36 6.14985C13.4539 6.0552 13.5817 6.00195 13.715 6.00195C13.8483 6.00195 13.9761 6.0552 14.07 6.14985L14.78 6.85985C14.8741 6.95202 14.9271 7.07816 14.9271 7.20985C14.9271 7.34154 14.8741 7.46769 14.78 7.55985L10.33 11.9999L14.78 16.4399C14.8747 16.5337 14.9279 16.6615 14.9279 16.7949C14.9279 16.9282 14.8747 17.056 14.78 17.1499L14.07 17.8499C13.9761 17.9445 13.8483 17.9978 13.715 17.9978C13.5817 17.9978 13.4539 17.9445 13.36 17.8499L8.22 12.7199Z"
+                                          fill="#5775FD"/>
+                                </svg>
+                            </a>
+                            {% for n in posts.paginator.page_range %}
+                            {% if posts.number == n %}
+                            <a href="?page={{ n }}" class="pagination__item active">{{ n }}</a>
+                            {% elif n > posts.number|add:-3 and n < posts.number|add:3 %}
+                            <a href="?page={{ n }}" class="pagination__item">{{ n }}</a>
+                            {% endif %}
+                            {% endfor %}
+                            <a href="{{ next_url }}" class="pagination__btn {% if not next_url %} pagination__btn--disabled {% endif %}">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.78 12.7199C15.9207 12.5793 15.9998 12.3887 16 12.1899V11.8099C15.9977 11.6114 15.9189 11.4216 15.78 11.2799L10.64 6.14985C10.5461 6.0552 10.4183 6.00195 10.285 6.00195C10.1517 6.00195 10.0239 6.0552 9.93 6.14985L9.22 6.85985C9.12594 6.95202 9.07293 7.07816 9.07293 7.20985C9.07293 7.34154 9.12594 7.46769 9.22 7.55985L13.67 11.9999L9.22 16.4399C9.12534 16.5337 9.0721 16.6615 9.0721 16.7949C9.0721 16.9282 9.12534 17.056 9.22 17.1499L9.93 17.8499C10.0239 17.9445 10.1517 17.9978 10.285 17.9978C10.4183 17.9978 10.5461 17.9445 10.64 17.8499L15.78 12.7199Z"
+                                          fill="#5775FD"/>
+                                </svg>
+                            </a>
+                        </div>
+                    {% endif %}
+                        <div class="projects__hint">
+                            Отказ от ответственности <br> Информация, размещаемая на сайте, не является индивидуальной
+                            инвестиционной рекомендацией. Инвестиции в долговые обязательства могут не соответствовать
+                            Вашему инвестиционному профилю и инвестиционным
+                            целям (ожиданиям). Анализ инвестиционного проекта, определение его соответствия Вашим
+                            интересам, инвестиционным целям, инвестиционному горизонту и уровню допустимого риска
+                            является Вашей задачей. Мы не несем ответственности
+                            за возможные убытки в случае совершения операций либо инвестирования в долговые
+                            обязательства. Информация не может рассматриваться в качестве гарантий или обещаний в
+                            будущем доходности вложений, уровня риска, размера издержек,
+                            безубыточности инвестиций. Результат инвестирования в прошлом не определяет дохода в
+                            будущем. Инвестирование в ценные бумаги сопряжено со значительным риском, и решения об
+                            инвестициях должны приниматься инвестором самостоятельно.
+                        </div>
+                    </div>
+                    <div class="projects__tab-content" data-tab-path="2">
+                        <div class="projects__view">
+                            <div class="projects__grid-view">
+                                <div class="projects__grid">
+                                    {% for post in posts.object_list %}
+                                    {% if post.statusProject == 'completed' %}
+                                    <div class="project-card">
+                                        <div class="project-card__top">
+                                            <span class="project-card__num">{{ post.id }}</span>
+                                            <h4 class="project-card__title">{{ post.projectNumber }}</h4>
+
+                                            <div class="project-card__badge">Завершен</div>
+
+                                        </div>
+
+                                        <div class="project-card__items">
+                                            <div class="project-card__item">
+                                                <span class="project-card__item-title">Номинал долга:</span>
+                                                <span class="project-card__item-desc">{{ post.amountDebts|intcomma }}₽</span>
+                                            </div>
+                                            <div class="project-card__item">
+                                                <span class="project-card__item-title">Стоимость покупки: </span>
+                                                <span class="project-card__item-desc">{{ post.amountBye|intcomma }}₽</span>
+                                            </div>
+                                            <div class="project-card__item">
+                                                <span class="project-card__item-title">Затраты: </span>
+                                                <span class="project-card__item-desc">{{ post.amountCosts|intcomma }}₽</span>
+                                            </div>
+                                            <div class="project-card__item">
+                                                <span class="project-card__item-title">Доход:</span>
+                                                <span class="project-card__item-desc">{{ post.planned_financial_result|intcomma }}₽</span>
+                                            </div>
+                                            <div class="project-card__item">
+                                                <span class="project-card__item-title">Срок взыскания:</span>
+                                                <span class="project-card__item-desc">{{ post.planned_collection_period|intcomma }}</span>
+                                            </div>
+                                            <div class="project-card__item">
+                                                <span class="project-card__item-title">Годовая доходность:</span>
+                                                <span class="project-card__item-desc">{{ post.discount|intcomma }}%</span>
+                                            </div>
+                                            <div class="project-card__item">
+                                                <span class="project-card__item-title">Сумма инвестиций всего:</span>
+                                                <span class="project-card__item-desc">{{ post.total_investment_amount|intcomma }}₽</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="projects__table-view">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>Проект</th>
+                                        <th>Номинал <br> долга:
+                                        </th>
+                                        <th>Стоимость <br> покупки:</th>
+                                        <th>
+                                            Затраты:
+                                        </th>
+                                        <th>Доход:
+                                        </th>
+                                        <th>Срок <br> зыскания:
+                                        </th>
+                                        <th>Годовая <br> доходность:
+                                        </th>
+                                        <th>Сумма <br> инвестиций <br> всего:
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for post in posts.object_list %}
+                                    {% if post.statusProject == 'completed' %}
+                                    <tr data-bs-toggle="modal" data-bs-target="#consultModal2">
+                                        <td>{{ post.projectNumber }}</td>
+                                        <td>{{ post.amountDebts|intcomma }}₽</td>
+                                        <td>{{ post.amountBye|intcomma }}₽</td>
+                                        <td>{{ post.amountCosts|intcomma }}₽</td>
+                                        <td>{{ post.planned_financial_result|intcomma }}₽</td>
+                                        <td>{{ post.planned_collection_period|intcomma }}</td>
+                                        <td>{{ post.discount|intcomma }}%</td>
+                                        <td>{{ post.total_investment_amount|intcomma }}₽</td>
+                                    </tr>
+                                    {% endif %}
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                     {% if is_paginated %}
+                        <div class="pagination">
+                            <a href="{{ prev_url }}" class=" {% if not prev_url %} pagination__btn--disabled {% endif %}pagination__btn ">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8.22 12.7199C8.07931 12.5793 8.00018 12.3887 8 12.1899V11.8099C8.0023 11.6114 8.08112 11.4216 8.22 11.2799L13.36 6.14985C13.4539 6.0552 13.5817 6.00195 13.715 6.00195C13.8483 6.00195 13.9761 6.0552 14.07 6.14985L14.78 6.85985C14.8741 6.95202 14.9271 7.07816 14.9271 7.20985C14.9271 7.34154 14.8741 7.46769 14.78 7.55985L10.33 11.9999L14.78 16.4399C14.8747 16.5337 14.9279 16.6615 14.9279 16.7949C14.9279 16.9282 14.8747 17.056 14.78 17.1499L14.07 17.8499C13.9761 17.9445 13.8483 17.9978 13.715 17.9978C13.5817 17.9978 13.4539 17.9445 13.36 17.8499L8.22 12.7199Z"
+                                          fill="#5775FD"/>
+                                </svg>
+                            </a>
+                            {% for n in posts.paginator.page_range %}
+                            {% if posts.number == n %}
+                            <a href="?page={{ n }}" class="pagination__item active">{{ n }}</a>
+                            {% elif n > posts.number|add:-3 and n < posts.number|add:3 %}
+                            <a href="?page={{ n }}" class="pagination__item">{{ n }}</a>
+                            {% endif %}
+                            {% endfor %}
+                            <a href="{{ next_url }}" class="pagination__btn {% if not next_url %} pagination__btn--disabled {% endif %}">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.78 12.7199C15.9207 12.5793 15.9998 12.3887 16 12.1899V11.8099C15.9977 11.6114 15.9189 11.4216 15.78 11.2799L10.64 6.14985C10.5461 6.0552 10.4183 6.00195 10.285 6.00195C10.1517 6.00195 10.0239 6.0552 9.93 6.14985L9.22 6.85985C9.12594 6.95202 9.07293 7.07816 9.07293 7.20985C9.07293 7.34154 9.12594 7.46769 9.22 7.55985L13.67 11.9999L9.22 16.4399C9.12534 16.5337 9.0721 16.6615 9.0721 16.7949C9.0721 16.9282 9.12534 17.056 9.22 17.1499L9.93 17.8499C10.0239 17.9445 10.1517 17.9978 10.285 17.9978C10.4183 17.9978 10.5461 17.9445 10.64 17.8499L15.78 12.7199Z"
+                                          fill="#5775FD"/>
+                                </svg>
+                            </a>
+                        </div>
+                    {% endif %}
+                        <div class="projects__hint">
+                            Отказ от ответственности <br> Информация, размещаемая на сайте, не является индивидуальной
+                            инвестиционной рекомендацией. Инвестиции в долговые обязательства могут не соответствовать
+                            Вашему инвестиционному профилю и инвестиционным
+                            целям (ожиданиям). Анализ инвестиционного проекта, определение его соответствия Вашим
+                            интересам, инвестиционным целям, инвестиционному горизонту и уровню допустимого риска
+                            является Вашей задачей. Мы не несем ответственности
+                            за возможные убытки в случае совершения операций либо инвестирования в долговые
+                            обязательства. Информация не может рассматриваться в качестве гарантий или обещаний в
+                            будущем доходности вложений, уровня риска, размера издержек,
+                            безубыточности инвестиций. Результат инвестирования в прошлом не определяет дохода в
+                            будущем. Инвестирование в ценные бумаги сопряжено со значительным риском, и решения об
+                            инвестициях должны приниматься инвестором самостоятельно.
+                        </div>
+                    </div>
+                </div>
+            </section>
+{% endblock %}

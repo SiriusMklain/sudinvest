@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="30999f51-b07b-44a0-9154-0c77d62e8d0e" name="sudinvest">
+        <fileTransfer accessType="SFTP" host="194.58.90.231" port="22" sshConfigId="02eb668d-942f-493c-a51e-6beb86a335a9" sshConfig="root@194.58.90.231:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
