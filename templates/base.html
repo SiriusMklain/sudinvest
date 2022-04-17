@@ -89,7 +89,7 @@
         </div>
 
         <div class="modal__content">
-            <form action="" class="modal__form validate-form" onsubmit="return validateForm()" method="post">
+            <form action="" onsubmit="return validateForm()" method="post" class="modal__form validate-form" >
             {% csrf_token %}
                 <div class="modal__form-grid">
                     {% for foo in form %}
@@ -98,20 +98,6 @@
                         {{ foo }}
                         <div class="form-group__error-text">
                             <span class="form-group__error-required">Это поле обязательно</span>
-                        </div>
-                    </fieldset>
-                    <fieldset class='form-group'>
-                        <label>Получено судебное решение?</label>
-                        <div class="custom-select">
-                            <div class="custom-select__target">
-                                <input type="text" placeholder="Выберите ответ">
-                            </div>
-                            <div class="custom-select__dropdown">
-                                <div class="custom-select__dropdown-inner">
-                                    <div class="custom-select__dropdown-item">Да</div>
-                                    <div class="custom-select__dropdown-item">Нет</div>
-                                </div>
-                            </div>
                         </div>
                     </fieldset>
                     {% endfor %}
@@ -136,29 +122,18 @@
         </div>
 
         <div class="modal__content">
-            <form action="" class="modal__form validate-form">
+            <form action=""  onsubmit="return validateForm()" method="post" class="modal__form validate-form">
                 <div class="modal__form-grid">
-                    <fieldset class='form-group'>
-                        <label>Имя</label>
-                        <input class="required" type='text' placeholder="Введите Ваше имя"/>
-                        <div class="form-group__error-text">
-                            <span class="form-group__error-required">Это поле обязательно</span>
-                        </div>
-                    </fieldset>
-                    <fieldset class='form-group'>
-                        <label>Телефон</label>
-                        <input class="required" type='tel' placeholder="Введите телефон"/>
-                        <div class="form-group__error-text">
-                            <span class="form-group__error-required">Это поле обязательно</span>
-                        </div>
-                    </fieldset>
-                    <fieldset class='form-group'>
-                        <label>Почта</label>
-                        <input class="required" type='email' placeholder="Введите Вашу почту"/>
-                        <div class="form-group__error-text">
-                            <span class="form-group__error-required">Это поле обязательно</span>
-                        </div>
-                    </fieldset>
+                    {% csrf_token %}
+                        {% for foo in form_lite %}
+                        <fieldset class='form-group'>
+                            <label>{{ foo.label }}</label>
+                            {{ foo }}
+                            <div class="form-group__error-text">
+                                <span class="form-group__error-required">Это поле обязательно</span>
+                            </div>
+                        </fieldset>
+                        {% endfor %}
                 </div>
                 <button class="modal__form-btn btn btn-blue">Оставить заявку</button>
             </form>

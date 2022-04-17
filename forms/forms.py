@@ -1,5 +1,5 @@
 from django import forms
-from .models import FeedBackMoney
+from .models import FeedBackMoney, FeedBack
 
 
 class FeedBackForm(forms.ModelForm):
@@ -23,4 +23,15 @@ class FeedBackForm(forms.ModelForm):
             'sud': forms.Select(),
             'sum_debt': forms.TextInput(attrs={'class': 'form-group', 'id': 'sum_debt'}),
             'list': forms.Select(),
+        }
+
+
+class FeedBackLite(forms.ModelForm):
+    class Meta:
+        model = FeedBack
+        fields = ['name', 'phone', 'email']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'required', 'id': 'name'}),
+            'phone': forms.TextInput(attrs={'class': 'required', 'id': 'phone'}),
+            'email': forms.TextInput(attrs={'class': 'required', 'id': 'email'}),
         }

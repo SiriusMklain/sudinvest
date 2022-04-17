@@ -48,28 +48,17 @@
             <div class="information__inner">
                 <h3 class="information__title">Получите дополнительную информацию по инвестированию</h3>
                 <p class="information__text">Оставьте контакты и мы свяжемся с Вами!</p>
-                <form class="information__form validate-form">
-                    <fieldset class="form-group">
-                        <label>Имя</label>
-                        <input class="required" type="text" placeholder="Введите имя">
-                        <div class="form-group__error-text">
-                            <span class="form-group__error-required">Это поле обязательно</span>
-                        </div>
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label>Почта</label>
-                        <input class="required" type="email" placeholder="Введите почту">
-                        <div class="form-group__error-text">
-                            <span class="form-group__error-required">Это поле обязательно</span>
-                        </div>
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label>Телефон</label>
-                        <input class="required" type="tel" placeholder="Введите телефон">
-                        <div class="form-group__error-text">
-                            <span class="form-group__error-required">Это поле обязательно</span>
-                        </div>
-                    </fieldset>
+                <form action="" onsubmit="return validateForm()" method="post" class="information__form validate-form">
+                    {% csrf_token %}
+                        {% for foo in form_lite %}
+                        <fieldset class='form-group'>
+                            <label>{{ foo.label }}</label>
+                            {{ foo }}
+                            <div class="form-group__error-text">
+                                <span class="form-group__error-required">Это поле обязательно</span>
+                            </div>
+                        </fieldset>
+                        {% endfor %}
                     <button class="information__btn btn btn-blue">Оставить заявку</button>
                 </form>
 
@@ -200,29 +189,18 @@
         <div class='container'>
             <div class='invest-info__inner'>
                 <h2 class="invest-info__title">Получите дополнительную информацию по инвестированию</h2>
-                <form action="" class="invest-info__form validate-form">
-                    <fieldset class="invest-info__form-group form-group">
-                        <label>Имя</label>
-                        <input class="required" type="text" placeholder="Введите имя">
-                        <div class="form-group__error-text">
-                            <span class="form-group__error-required">Это поле обязательно</span>
-                        </div>
-                    </fieldset>
-                    <fieldset class="invest-info__form-group form-group">
-                        <label>Почта</label>
-                        <input class="required" type="email" placeholder="Введите почту">
-                        <div class="form-group__error-text">
-                            <span class="form-group__error-required">Это поле обязательно</span>
-                        </div>
-                    </fieldset>
-                    <fieldset class="invest-info__form-group form-group">
-                        <label>Телефон</label>
-                        <input class="required" type="tel" placeholder="Введите телефон">
-                        <div class="form-group__error-text">
-                            <span class="form-group__error-required">Это поле обязательно</span>
-                        </div>
-                    </fieldset>
-                    <button class="invest-info__btn btn btn-blue">Оставить заявку</button>
+                    <form action="" onsubmit="return validateForm()" method="post" class="invest-info__form validate-form">
+                    {% csrf_token %}
+                        {% for foo in form_lite %}
+                        <fieldset class='form-group'>
+                            <label>{{ foo.label }}</label>
+                            {{ foo }}
+                            <div class="form-group__error-text">
+                                <span class="form-group__error-required">Это поле обязательно</span>
+                            </div>
+                        </fieldset>
+                        {% endfor %}
+                    <button class="information__btn btn btn-blue">Оставить заявку</button>
                 </form>
             </div>
         </div>

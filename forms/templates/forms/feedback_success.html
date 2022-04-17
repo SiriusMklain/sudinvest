@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Взыскание{% endblock %}
+
+{% block content %}
+    <section class='recovery'>
+        <div class='container'>
+            <div class='recovery__inner'>
+                <div class="recovery__img">
+                    <img src="{% static 'img/girl3.webp' %}" alt="">
+                </div>
+                <h1 class="recovery__title display3">Сообщение отправлено</h1>
+                <div class="recovery__desc">
+                    Мы свяжемся с вами  <br> как только <br> обработаем вашу заявку.
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

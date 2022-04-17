@@ -4,20 +4,49 @@ from forms.forms import *
 
 def home(request):
     form = FeedBackForm(request.POST)
-    return render(request, 'staticpage/home.html', {'form': form})
+    form_lite = FeedBackLite(request.POST)
+    context  = {
+        'form': form,
+        'form_lite': form_lite
+    }
+    return render(request, 'staticpage/home.html', context=context)
 
 
 def about(request):
-    return render(request, 'staticpage/about.html')
+    form = FeedBackForm(request.POST)
+    form_lite = FeedBackLite(request.POST)
+    context = {
+        'form': form,
+        'form_lite': form_lite
+    }
+    return render(request, 'staticpage/about.html', context=context)
 
 
 def info(request):
-    return render(request, 'staticpage/info.html')
+    form = FeedBackForm(request.POST)
+    form_lite = FeedBackLite(request.POST)
+    context = {
+        'form': form,
+        'form_lite': form_lite
+    }
+    return render(request, 'staticpage/info.html', context=context)
 
 
 def investments(request):
-    return render(request, 'staticpage/investments.html')
+    form = FeedBackForm(request.POST)
+    form_lite = FeedBackLite(request.POST)
+    context = {
+        'form': form,
+        'form_lite': form_lite
+    }
+    return render(request, 'staticpage/investments.html', context=context)
 
 
 def vziskaniye(request):
-    return render(request, 'staticpage/vziskaniye.html')
+    form = FeedBackForm(request.POST)
+    form_lite = FeedBackLite(request.POST)
+    context = {
+        'form': form,
+        'form_lite': form_lite
+    }
+    return render(request, 'staticpage/vziskaniye.html', context=context)
