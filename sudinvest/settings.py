@@ -159,8 +159,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_HOST = 'mail.makarenko.tech'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = "dev@inkitchen.app"
-EMAIL_HOST_PASSWORD = '0D2y9G1y'
+EMAIL_HOST_USER = "dev@makarenko.tech"
+EMAIL_HOST_PASSWORD = '456654Sergei'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 

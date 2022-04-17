@@ -1,5 +1,5 @@
 from django import forms
-from .models import FeedBackMoney, FeedBack
+from .models import *
 
 
 class FeedBackForm(forms.ModelForm):
