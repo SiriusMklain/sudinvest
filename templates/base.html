@@ -89,7 +89,7 @@
         </div>
 
         <div class="modal__content">
-            <form action="" onsubmit="return validateForm()" method="post" class="modal__form validate-form" >
+            <form action="{% url 'feedback_view' %}" method="post" class="modal__form validate-form" >
             {% csrf_token %}
                 <div class="modal__form-grid">
                     {% for foo in form %}
@@ -102,7 +102,7 @@
                     </fieldset>
                     {% endfor %}
                 </div>
-                <button class="modal__form-btn btn btn-blue">Оставить заявку</button>
+                <button type="submit" id="submit" name="send" class="modal__form-btn btn btn-blue">Оставить заявку</button>
             </form>
         </div>
 
@@ -122,7 +122,7 @@
         </div>
 
         <div class="modal__content">
-            <form action=""  onsubmit="return validateForm()" method="post" class="modal__form validate-form">
+            <form action="{% url 'feedback_view' %}"  onsubmit="return validateForm()" method="post" class="modal__form validate-form">
                 <div class="modal__form-grid">
                     {% csrf_token %}
                         {% for foo in form_lite %}
@@ -135,7 +135,7 @@
                         </fieldset>
                         {% endfor %}
                 </div>
-                <button class="modal__form-btn btn btn-blue">Оставить заявку</button>
+                <button type="submit" id="submit" name="send" class="modal__form-btn btn btn-blue">Оставить заявку</button>
             </form>
         </div>
 

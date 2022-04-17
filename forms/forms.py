@@ -32,6 +32,6 @@ class FeedBackLite(forms.ModelForm):
         fields = ['name', 'phone', 'email']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'required', 'id': 'name'}),
-            'phone': forms.TextInput(attrs={'class': 'required', 'id': 'phone'}),
+            'phone': forms.TextInput(attrs={'class': 'required', 'id': 'phone', 'type': 'tel'}),
             'email': forms.TextInput(attrs={'class': 'required', 'id': 'email'}),
         }

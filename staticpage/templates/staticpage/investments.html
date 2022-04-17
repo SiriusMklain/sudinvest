@@ -48,18 +48,15 @@
             <div class="information__inner">
                 <h3 class="information__title">Получите дополнительную информацию по инвестированию</h3>
                 <p class="information__text">Оставьте контакты и мы свяжемся с Вами!</p>
-                <form action="" onsubmit="return validateForm()" method="post" class="information__form validate-form">
+                <form action="{% url 'feedback_view_lite' %}" method="POST" class="information__form validate-form">
                     {% csrf_token %}
                         {% for foo in form_lite %}
                         <fieldset class='form-group'>
                             <label>{{ foo.label }}</label>
                             {{ foo }}
-                            <div class="form-group__error-text">
-                                <span class="form-group__error-required">Это поле обязательно</span>
-                            </div>
                         </fieldset>
                         {% endfor %}
-                    <button class="information__btn btn btn-blue">Оставить заявку</button>
+                    <input type="submit" value="Отправить" class="information__btn btn btn-blue">
                 </form>
 
                 <div class="information__img">

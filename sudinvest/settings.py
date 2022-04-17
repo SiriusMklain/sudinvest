@@ -141,8 +141,6 @@ USE_TZ = True
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
 
 
 if DEBUG == True:
@@ -159,7 +157,7 @@ TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-EMAIL_HOST = 'mail.inkitchen.app'
+EMAIL_HOST = 'mail.makarenko.tech'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = "dev@inkitchen.app"
 EMAIL_HOST_PASSWORD = '0D2y9G1y'
