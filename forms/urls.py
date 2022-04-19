@@ -3,6 +3,7 @@ from .views import *
 
 urlpatterns = [
 #    path('', FeedBackView.as_view(), name='feedback_view'),
-    path('', lite_message, name='feedback_view_lite'),
-    # path('forms/', forms_success, name='forms')
+    path('', MessageLite.as_view(), name='feedback_view_lite'),
+    path('test/', MessageForm.as_view(), name='feedback_view'),
+    path('form/', forms_success, name='forms_success')
 ]

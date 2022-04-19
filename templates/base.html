@@ -82,12 +82,25 @@
             <div class="modal__title display2">Оставьте заявку</div>
             <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M25.3334 8.54666L23.4534 6.66666L16.0001 14.12L8.54675 6.66666L6.66675 8.54666L14.1201 16L6.66675 23.4533L8.54675 25.3333L16.0001 17.88L23.4534 25.3333L25.3334 23.4533L17.8801 16L25.3334 8.54666Z"
-                          fill="#323232"/>
+                    <path d="M25.3334 8.54666L23.4534 6.66666L16.0001 14.12L8.54675 6.66666L6.66675 8.54666L14.1201 16L6.66675 23.4533L8.54675 25.3333L16.0001 17.88L23.4534 25.3333L25.3334 23.4533L17.8801 16L25.3334 8.54666Z" fill="#323232"/>
                 </svg>
             </button>
         </div>
 
+        <div class="modal__content">
+            <form action="{% url 'feedback_view' %}" method="POST" class="modal__form">
+                <div class="modal__form-grid">
+                    {% csrf_token %}
+                    {% for foo in form %}
+                    <fieldset class='form-group'>
+                        <label>{{ foo.label }}</label>
+                        {{ foo }}
+                    </fieldset>
+                    {% endfor %}
+                </div>
+                <input type="submit" value="Отправить" class="modal__form-btn btn btn-blue">
+            </form>
+        </div>
 
     </div>
 </div>
@@ -98,12 +111,39 @@
             <div class="modal__title display2">Оставьте заявку</div>
             <button type="button" class="modal__close" data-bs-dismiss="modal" aria-label="Close">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M25.3334 8.54666L23.4534 6.66666L16.0001 14.12L8.54675 6.66666L6.66675 8.54666L14.1201 16L6.66675 23.4533L8.54675 25.3333L16.0001 17.88L23.4534 25.3333L25.3334 23.4533L17.8801 16L25.3334 8.54666Z"
-                          fill="#323232"/>
+                    <path d="M25.3334 8.54666L23.4534 6.66666L16.0001 14.12L8.54675 6.66666L6.66675 8.54666L14.1201 16L6.66675 23.4533L8.54675 25.3333L16.0001 17.88L23.4534 25.3333L25.3334 23.4533L17.8801 16L25.3334 8.54666Z" fill="#323232"/>
                 </svg>
             </button>
         </div>
 
+        <div class="modal__content">
+            <form action="" class="modal__form validate-form">
+                <div class="modal__form-grid">
+                    <fieldset class='form-group'>
+                        <label>Имя</label>
+                        <input class="required" type='text' placeholder="Введите Ваше имя" />
+                        <div class="form-group__error-text">
+                            <span class="form-group__error-required">Это поле обязательно</span>
+                        </div>
+                    </fieldset>
+                    <fieldset class='form-group'>
+                        <label>Телефон</label>
+                        <input class="required" type='tel' placeholder="Введите телефон" />
+                        <div class="form-group__error-text">
+                            <span class="form-group__error-required">Это поле обязательно</span>
+                        </div>
+                    </fieldset>
+                    <fieldset class='form-group'>
+                        <label>Почта</label>
+                        <input class="required" type='email' placeholder="Введите Вашу почту" />
+                        <div class="form-group__error-text">
+                            <span class="form-group__error-required">Это поле обязательно</span>
+                        </div>
+                    </fieldset>
+                </div>
+                <button class="modal__form-btn btn btn-blue">Оставить заявку</button>
+            </form>
+        </div>
 
     </div>
 </div>
