@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -88,18 +87,22 @@
         </div>
 
         <div class="modal__content">
-            <form action="{% url 'feedback_view' %}" method="POST" class="modal__form">
+            <form action="" method="POST" class="modal__form" id="contactForm">
                 <div class="modal__form-grid">
                     {% csrf_token %}
                     {% for foo in form %}
                     <fieldset class='form-group'>
                         <label>{{ foo.label }}</label>
                         {{ foo }}
+                        <div class="form-group__error-text">
+                            <span class="form-group__error-required">Это поле обязательно</span>
+                        </div>
                     </fieldset>
                     {% endfor %}
                 </div>
-                <input type="submit" value="Отправить" class="modal__form-btn btn btn-blue">
+                <button id="submit" type="button" class="modal__form-btn btn btn-blue btn_submit">Отправить</button>
             </form>
+            <div id="output">
         </div>
 
     </div>
@@ -152,7 +155,32 @@
 <!--  -->
 <script src="{% static 'js/libs.min.js' %}"></script>
 <script src="{% static 'js/main.min.js' %}"></script>
-
+{% block javascript %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+      // отслеживаем событие отправки формы
+      $(document).on('click', '#submit', function(e) {
+          var formData = new FormData();
+          formData.append('name', $('#name').val())
+          formData.append('phone', $('#phone').val())
+          formData.append('email', $('#email').val())
+          formData.append('action', 'feedback_view')
+          formData.append('csrfmiddlewaretoken', '{{ csrf_token }}')
+          $.ajax({
+              type: 'POST',
+              url: '{% url "feedback_view" %}',
+              data: formData,
+              cache: false,
+              processData: false,
+              contentType: false,
+              enctype: 'multipart/form-data',
+              success: (function (response) {
+                  console.log(response)
+            })
+          })
+      });
+  </script>
+{% endblock javascript %}
 </body>
 
 </html>

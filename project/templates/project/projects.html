@@ -80,7 +80,7 @@
                                             </div>
                                             <div class="project-card__item">
                                                 <span class="project-card__item-title">Инвестиции принимаются до:</span>
-                                                <span class="project-card__item-desc">{{ post.investments_are_accepted_until|intcomma }}</span>
+                                                <span class="project-card__item-desc">{{ post.investments_are_accepted_until }}</span>
                                             </div>
                                         </div>
 
@@ -107,7 +107,7 @@
                                         </th>
                                         <th>Срок <br> взыскания:
                                         </th>
-                                        <th>Годовая <br> доходность:
+<!--                                        <th>Годовая <br> доходность:-->
                                         </th>
                                         <th>Сумма <br> инвестиций <br> всего:
                                         </th>
@@ -126,9 +126,9 @@
                                         <td>{{ post.planned_financial_result|intcomma }}₽</td>
                                         <td>{{ post.planned_collection_period|intcomma }}</td>
                                         <td>{{ post.discount|intcomma }}%</td>
-                                        <td>{ post.total_investment_amount|intcomma }}₽</td>
-                                        <td>{{ post.free_for_investment|intcomma }}₽</td>
-                                        <td>{{ post.investments_are_accepted_until|intcomma }}</td>
+                                        <td>{{ post.total_investment_amount|intcomma }}₽</td>
+                                        <td>{{ post.free_for_investment }}₽</td>
+                                        <td>{{ post.investments_are_accepted_until }}</td>
                                     </tr>
                                     {% endif %}
                                     {% endfor %}
@@ -177,6 +177,7 @@
                             инвестициях должны приниматься инвестором самостоятельно.
                         </div>
                     </div>
+
                     <div class="projects__tab-content" data-tab-path="2">
                         <div class="projects__view">
                             <div class="projects__grid-view">
@@ -241,9 +242,9 @@
                                         </th>
                                         <th>Доход:
                                         </th>
-                                        <th>Срок <br> зыскания:
+                                        <th>Срок <br> взыскания:
                                         </th>
-                                        <th>Годовая <br> доходность:
+<!--                                        <th>Годовая <br> доходность:-->
                                         </th>
                                         <th>Сумма <br> инвестиций <br> всего:
                                         </th>
@@ -260,7 +261,7 @@
                                         <td>{{ post.planned_financial_result|intcomma }}₽</td>
                                         <td>{{ post.planned_collection_period|intcomma }}</td>
                                         <td>{{ post.discount|intcomma }}%</td>
-                                        <td>{{ post.total_investment_amount|intcomma }}₽</td>
+<!--                                        <td>{{ post.total_investment_amount|intcomma }}₽</td>-->
                                     </tr>
                                     {% endif %}
                                     {% endfor %}

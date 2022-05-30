@@ -157,10 +157,10 @@ TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-EMAIL_HOST = 'mail.makarenko.tech'
+EMAIL_HOST = 'mail.investsud.ru'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = "dev@makarenko.tech"
-EMAIL_HOST_PASSWORD = '456654Sergei'
+EMAIL_HOST_USER = "info@investsud.ru"
+EMAIL_HOST_PASSWORD = 'Debt123'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 

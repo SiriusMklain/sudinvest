@@ -26,6 +26,7 @@ urlpatterns = [
     path('forms/', include('forms.urls')),
 ]
 
+admin.site.site_header = 'SUDINVEST'
 
 # if settings.DEBUG:
 #     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
