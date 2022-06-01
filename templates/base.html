@@ -87,7 +87,7 @@
         </div>
 
         <div class="modal__content">
-            <form action="" method="POST" class="modal__form" id="contactForm">
+            <form action="" method="POST" class="modal__form validate-form">
                 <div class="modal__form-grid">
                     {% csrf_token %}
                     {% for foo in form %}
@@ -100,9 +100,8 @@
                     </fieldset>
                     {% endfor %}
                 </div>
-                <button id="submit" type="button" class="modal__form-btn btn btn-blue btn_submit">Отправить</button>
+                <button class="modal__form-btn btn btn-blue">Оставить заявку</button>
             </form>
-            <div id="output">
         </div>
 
     </div>
@@ -155,30 +154,48 @@
 <!--  -->
 <script src="{% static 'js/libs.min.js' %}"></script>
 <script src="{% static 'js/main.min.js' %}"></script>
+<script src="{% static 'js/ajax_form.js' %}"></script>
 {% block javascript %}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
   <script>
       // отслеживаем событие отправки формы
-      $(document).on('click', '#submit', function(e) {
-          var formData = new FormData();
-          formData.append('name', $('#name').val())
-          formData.append('phone', $('#phone').val())
-          formData.append('email', $('#email').val())
-          formData.append('action', 'feedback_view')
-          formData.append('csrfmiddlewaretoken', '{{ csrf_token }}')
-          $.ajax({
-              type: 'POST',
-              url: '{% url "feedback_view" %}',
-              data: formData,
-              cache: false,
-              processData: false,
-              contentType: false,
-              enctype: 'multipart/form-data',
-              success: (function (response) {
-                  console.log(response)
-            })
-          })
-      });
+      //$(document).on('click', '#submit', function(e) {
+
+          //$('#inn').mask("999-999-999-999");
+          //
+          // var isValid = ($('#inputMail').val().match(/.+?\@.+/g) || []).length === 1;
+          // var mail = $('#email');
+          //
+          // if(mail.val() != ''){
+          //     if(mail.val().search(isValid) == 0){
+          //         alert('ок')
+			// 	}else{
+			// 		alert('не прошло валидацию')
+			// 	}
+          // }else{
+          //     alert('пусто')
+          //     break;
+          // }
+          //
+          // var formData = new FormData();
+          // formData.append('name', $('#name').val())
+          // formData.append('phone', $('#phone').val())
+          // formData.append('email', $('#email').val())
+          // formData.append('action', 'feedback_view')
+          // formData.append('csrfmiddlewaretoken', '{{ csrf_token }}')
+          // $.ajax({
+          //     type: 'POST',
+          //     url: '{% url "feedback_view" %}',
+          //     data: formData,
+          //     cache: false,
+          //     processData: false,
+          //     contentType: false,
+          //     enctype: 'multipart/form-data',
+          //     success: (function (response) {
+          //         console.log(response)
+          //   })
+          // })
+     // });
   </script>
 {% endblock javascript %}
 </body>
